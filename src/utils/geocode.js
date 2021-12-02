@@ -6,7 +6,7 @@ const geocode = (address,callback) => {
         if(error){
             callback('Seems like the app is having some issues',undefined)
         }
-        else if(response.body.features.length === 0){
+        else if(response.body.message === 'Forbidden' || response.body.message === 'Not Found' || response.body.features.length === 0){
             callback('Unable to find the Location, please try another search',undefined)
         }
         else{
